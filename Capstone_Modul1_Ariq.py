@@ -1,13 +1,16 @@
 from datetime import datetime
 
+# Data Pasien Awal
 list_pasien = [{'id':10001,'nama': 'Agus Wijaya', 'usia': 28, 'jenis_kelamin': 'Pria', 'alamat': 'Jl. Sudirman No. 123, Jakarta, Indonesia', 'pekerjaan': 'Manajer Proyek', 'tanggal_registrasi': '2019-06-12','kunjungan':[]},
 {'id':10002,'nama': 'Ratna Susilo', 'usia': 34, 'jenis_kelamin': 'Wanita', 'alamat': 'Jl. Gajah Mada No. 456, Surabaya, Indonesia', 'pekerjaan': 'Analisis Data', 'tanggal_registrasi': '2020-09-08','kunjungan':[]},
 {'id':10003,'nama': 'Siti Rahayu', 'usia': 42, 'jenis_kelamin': 'Wanita', 'alamat': 'Jl. Imam Bonjol No. 789, Bandung, Indonesia', 'pekerjaan': 'Guru', 'tanggal_registrasi': '2021-03-21','kunjungan':[]},
 {'id':10004,'nama': 'Budi Santoso', 'usia': 21, 'jenis_kelamin': 'Pria', 'alamat': 'Jl. Pemuda No. 987, Yogyakarta, Indonesia', 'pekerjaan': 'Desainer Grafis', 'tanggal_registrasi': '2022-01-05','kunjungan':[]},
 {'id':10005,'nama': 'Dewi Utami', 'usia': 47, 'jenis_kelamin': 'Wanita', 'alamat': 'Jl. Diponegoro No. 321, Medan, Indonesia', 'pekerjaan': 'Akuntan', 'tanggal_registrasi': '2022-11-16','kunjungan':[]}]
 
+# Data Dokter Awal
 list_dokter = [{'nama': 'Dr. Ahmad Basuki', 'spesialis': 'Dokter Umum'}, {'nama': 'Dr. Budi Santoso', 'spesialis': 'Dokter Gigi'}, {'nama': 'Dr. Chandra Pratama', 'spesialis': 'Dokter THT'}, {'nama': 'Dr. Dewianto Joko', 'spesialis': 'Dokter Umum'}, {'nama': 'Dr. Eka Putra', 'spesialis': 'Dokter Mata'}, {'nama': 'Dr. Gita Purnama', 'spesialis': 'Dokter Mata'}, {'nama': 'Dr. Hadi Nugraha', 'spesialis': 'Dokter Gigi'}, {'nama': 'Dr. Indra Kusuma', 'spesialis': 'Dokter Kulit'}]
 
+# Main Menu
 def main_menu():
     menu = input('''
 Selamat Datang di Database Rumah Sakit Alamanda
@@ -42,7 +45,7 @@ Masukkan angka Menu yang ingin dijalankan :''')
         print("Input Tidak Valid")
         main_menu()
          
-
+# Menu Read
 def menu1():
     menu = input('''
 Menampilkan Data Pasien
@@ -65,6 +68,7 @@ Masukkan angka Menu yang ingin dijalankan :''')
         print('Menu Tidak Tersedia')
     menu1()
 
+# Menu Create
 def menu2():
     menu = input('''
 Menambah Data Pasien
@@ -110,6 +114,7 @@ Masukkan angka Menu yang ingin dijalankan :''')
         print('Menu Tidak Tersedia')
     menu2()    
 
+# Menu Update
 def menu3():
     menu = input('''
 Mengupdate Data Pasien
@@ -130,6 +135,7 @@ Masukkan angka Menu yang ingin dijalankan :''')
         print('Menu Tidak Tersedia')
     menu3()  
 
+# Menu Delete
 def menu4():
     menu = input('''
 Menghapus Data Pasien
@@ -150,6 +156,7 @@ Masukkan angka Menu yang ingin dijalankan :''')
         print('Menu Tidak Tersedia')
     menu4()
 
+# Menu Sorting
 def menu5():
     menu = input('''
 Sorting Data Pasien Berdasarkan
@@ -177,6 +184,7 @@ Masukkan angka Menu yang ingin dijalankan :''')
         print('Menu Tidak Tersedia')
     menu5()
 
+# Menu Kunjungan Pasien
 def menu6():
     menu = input('''
 Menu Kunjungan Pasien
@@ -222,6 +230,7 @@ Masukkan angka Menu yang ingin dijalankan :''')
         print('Menu Tidak Tersedia')
     menu6()
 
+# Menu Dokter
 def menu7():
     menu = input('''
 Menu Dokter
@@ -268,6 +277,7 @@ Masukkan angka Menu yang ingin dijalankan :''')
         print('Menu Tidak Tersedia')
     menu7()
 
+# Untuk print List Pasien
 def display(id = 0,sort='',reverse=False):
     if len(list_pasien) != 0:
         print()
@@ -293,6 +303,7 @@ def display(id = 0,sort='',reverse=False):
     else :
         print("Data Pasien Tidak Ada")
 
+# Untuk filter nomor pasien apakah ada atau tidak dan juga fungsi selanjutnya seperti edit dan delete atau hanya read
 def filter_id(id,step='read'):
     data = list(filter(lambda i:i if i['id'] == id else '',list_pasien))
     if len(data) > 0:
@@ -313,6 +324,7 @@ def filter_id(id,step='read'):
         print(f"Data Pasien dengan nomor {id} Tidak Ada")
 
 
+# untuk edit pasien
 def handleEdit(data):
     index = list_pasien.index(data[0])
     konfirmasi_input = True
@@ -448,6 +460,7 @@ Masukkan angka kolom yang ingin diupdate :''')
         else :
             print("Input tidak valid") 
 
+# untuk delete pasien
 def handleDelete(data):
     konfirmasi_hapus = True
     while konfirmasi_hapus:
@@ -462,6 +475,7 @@ def handleDelete(data):
         else :
             print("Input Tidak Valid")
 
+# Untuk print kunjungan per pasien
 def display_kunjungan(id):
         print()
         print(f"Daftar Kunjungan Pasien {id}")
@@ -472,6 +486,7 @@ def display_kunjungan(id):
             print(f'{i["tanggal"]:<30} | {i["dokter"]:<30} | {i["keluhan"]}')
         print()
 
+# Untuk print list dokter
 def display_dokter():
         print()
         print("Daftar Dokter")
@@ -481,5 +496,5 @@ def display_dokter():
             print(f'{index+1:<10} | {i["nama"]:<30} | {i["spesialis"]}')
         print()
 
-
+# Untuk menjalankan fungsi utama
 main_menu()
