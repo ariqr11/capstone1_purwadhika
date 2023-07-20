@@ -42,3 +42,5 @@ Terdapat 7 Menu Di Dalamnya:
 
 - Menu 7 (Menu Dokter) :
   Terkait dengan kunjungan pasien, user bisa menambahkan dokter dan menghapus nama dokter dari list yang sudah ada
+
+  **Note : Semua input sudah diproteksi apabila harus diisi integer maka akan ada notifikasi ketika tidak diisi dengan integer
