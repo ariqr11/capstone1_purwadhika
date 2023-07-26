@@ -208,7 +208,7 @@ Masukkan angka Menu yang ingin dijalankan :''')
             if len(data) != 0:
                 display_dokter()
                 tambah_dokter = int(input("Masukkan Nomor Dokter : "))
-                if 0<tambah_dokter<len(list_dokter):
+                if 0<tambah_dokter<=len(list_dokter):
                     tambah_keluhan = input("Masukkan Keluhan Pasien : ")
                     index = list_pasien.index(data[0])
                     list_pasien[index]['kunjungan'].append({
@@ -253,7 +253,7 @@ Masukkan angka Menu yang ingin dijalankan :''')
         try:
             display_dokter()
             id = int(input('Masukkan Nomor Dokter yang ingin dihapus : '))
-            if 0<id<len(list_pasien):
+            if 0<id<=len(list_dokter):
                 konfirmasi_hapus = True
                 while konfirmasi_hapus:
                     konfirmasi = input(f"Apakah yakin ingin menghapus data dengan nomor dokter {id}? (Ya/Tidak) : ")
