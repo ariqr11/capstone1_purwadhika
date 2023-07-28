@@ -79,7 +79,18 @@ Masukkan angka Menu yang ingin dijalankan :''')
     if menu == '1':
         print()
         try : 
-            tambah_nama = input("Masukkan Nama Pasien : ")
+            konfirmasi_nama = True
+            while konfirmasi_nama :
+                 tambah_nama = input("Masukkan Nama Pasien : ")
+                 if len(tambah_nama) != 0:
+                    kata = tambah_nama.split()
+                    gabung = ''.join(kata)
+                    if gabung.isalpha() == True:
+                        konfirmasi_nama = False
+                    else:
+                        print("input hanya huruf saja")
+                 else:
+                    print("Nama Harus diisi")
             tambah_usia = int(input("Masukkan Usia Pasien : "))
     
             konfirmasi_input = True
@@ -344,7 +355,18 @@ Pilih kolom yang ingin diupdate
 Masukkan angka kolom yang ingin diupdate :''')
 
                 if menu_edit == '1':
-                    new_value = input("Masukkan Nama Baru Pasien :")
+                    konfirmasi_nama = True
+                    while konfirmasi_nama :
+                        new_value = input("Masukkan Nama Pasien : ")
+                        if len(new_value) != 0:
+                            kata = new_value.split()
+                            gabung = ''.join(kata)
+                            if gabung.isalpha() == True:
+                                konfirmasi_nama = False
+                            else:
+                                print("input hanya huruf saja")
+                        else:
+                            print("Nama Harus diisi")
                     print(f"Data nama berubah dari {data[0]['nama']} menjadi {new_value}")
                     konfirmasi_edit = True
                     while konfirmasi_edit:
